@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Documentation</title>
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/prettify.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand" alt="Choco Pixel">
+					<img src="img/logo.png">
+					</a>
+				</div>
+			</div>
+		</header>
+		<div class="container docs-container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="sidebar hidden-print affix-top" role="complementary">
+						<div id="toc">
+							<ul class="nav sidenav">
+								<li class="active"><a href="#introduction">Introduction</a></li>
+								<li>
+									<a href="#common-settings">Common settings</a>
+									<ul class="nav">
+										<li><a href="#modifying-countdown-timer">Modifying countdown timer</a></li>
+										<li><a href="#modifying-contact-email">Modifying contact email</a></li>
+										<li><a href="#email-subscription">E-mail subscription</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#background-template">Background template</a>
+									<ul class="nav">
+										<li><a href="#modifying-background-image">Modifying background image</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#slideshow-template">Slideshow template</a>
+									<ul class="nav">
+										<li><a href="#modifying-slideshow-images">Modifying slideshow images</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#video-template">Video template</a>
+									<ul class="nav">
+										<li><a href="#adding-youtube-video">Adding a youtube video</a></li>
+										<li><a href="#adding-local-video">Adding local video</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9" role="main">
+					<div class="docs-section">
+						<div class="page-header">
+							<h1 id="introduction">Introduction</h1>
+						</div>
+						<p>First of all thank you for purchasing the template. If you have any questions that are beyond the scope of this help file, please feel free to email at <a href="mailto:support@choco-pixel.com">support@choco-pixel.com</a>. 
+						Any improvement or suggestion for some new feature will also be welcomed.
+						</p>
+						<p>The documentation bellow is divided into sections for each version of template, starting with common instructions.</p>
+					</div>
+					<div class="docs-section">
+						<div class="page-header">
+							<h1 id="common-settings">Common settings</h1>
+						</div>
+						<h2 id="modifying-countdown-timer">Modifying countdown timer</h2>
+						<ol >
+							<li>Open <code>js/init.js</code></li>
+							<li>In section <code>Countdown</code>, change the date as <code>year/month/day</code></li>
+						</ol>
+						
+						<p><b>Example:</b> 20<sup>th</sup> of October 2015  would look like: <code>2015/10/20</code></p>
+						
+						<h2 id="modifying-contact-email">Modifying contact e-mail</h2>
+						<ol >
+							<li>Open <code>php/include/settings.php</code></li>
+							<li>Enter your desired e-mail address <code>$to = 'YOUR-EMAIL-ADDRESS';</code>
+						</ol>
+						<p><b>Example:</b> <a href="#">contact@mydomain.com</a>  would look like: <code>$to = 'contact@mydomain.com';</code></p>
+
+						<h2 id="email-subscription">E-mail subscription</h2>
+						<h3 id="database">Setting up database</h3>
+						
+						<ol  class="image-instructions">
+							<li>Open <b>phpMyAdmin</b></li>
+							<li><img src="img/instructions/DB/1.png"></li>
+							<li><img src="img/instructions/DB/2.png"></li>
+							<li><img src="img/instructions/DB/3.png"></li>
+							<li><img src="img/instructions/DB/4.png"></li>
+							<li>
+								<p>Copy the following into the field:</p>
+								<pre class="prettyprint lang-sql">
+CREATE TABLE `signups` (
+`signups_id` int(10) NOT NULL AUTO_INCREMENT,
+`signup_email_address` varchar(250) DEFAULT NULL,
+`signup_timestamp` timestamp,
+PRIMARY KEY (`signups_id`) 
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+								</pre>
+								<img src="img/instructions/DB/5.png">
+								<p>Click <b>Go</b> and the database is ready.</p>
+							</li>
+						</ol>
+						
+						
+						<h4 id="modifying-credentials">Modifying credentials</h4>
+						
+						<ol >
+							<li>Open <code>php/include/settings.php</code></li>
+							<li>Edit database credentials:
+<pre class="prettyprint lang-php">
+// Database
+$host = "YOUR-HOST-NAME";
+$username = "YOUR-HOST-USER";
+$password = "YOUR-HOST-PASSWORD";
+$database = "TEMPLATE-DATABASE";
+</pre>
+							</li>
+						</ol>
+						
+						
+						<h3 id="database">Setting up MailChimp</h3>
+						<ol>
+							<li>If you don't have an account, go to <a href="login.mailchimp.com/signup">login.mailchimp.com/signup</a> and enter 
+							your credentials, otherwise go to the next step</li>
+							<li>If you already have a list set up, go to the next step. On MailChimp dashboard click on <code>Lists</code> and 
+								in top right corner click on <code>Create list</code>
+								and fill the List details
+							</li>
+							<li>Click again on <code>Lists</code> and click from dropdown menu <code>Settings</code>
+								<img src="img/instructions/MailChimp/1.png" alt="" />
+							</li>
+							<li>At the bottom of page, copy <code>Unique id for list</code> and paste in <code>php/include/settings.php</code> file
+<pre class="prettyprint lang-php">
+// MailChimp
+$listID = "LIST-ID";
+</pre>
+							
+							</li>
+							
+							<li>Next go to <a href="http://admin.mailchimp.com/account/api">http://admin.mailchimp.com/account/api</a> 
+								and click on <code>Create a Key</code> button and copy and paste into same file as
+								in above step (<code>php/include/settings.php</code>) and MailChimp integration is ready
+<pre class="prettyprint lang-php">
+$APIKey = "API-KEY";
+</pre>
+							</li>
+						</ol>
+						
+						<h3 id="database">Choosing e-mail subscription variant</h3>
+						<p>
+							E-mail subscription could be realised with database storage or with MailChimp integration. 
+							
+						</p>
+						
+						<ol>
+							<li>Open <code>php/include/settings.php</code></li>
+							<li>Set variable <code>$useMailChimp</code> value <code>YES</code> if you want <b>MailChimp</b> integration
+								or <code>NO</code> if you want <b>database storage</b>
+							</li>
+						</ol>
+						
+						<p><b>Example:</b> Enabling MailChimp intergration would look like:</p>
+						
+<pre class="prettyprint lang-php">
+// Variant
+$useMailChimp = "YES";
+</pre>
+						
+						<div class="page-header">
+							<h1 id="background-template">Background template</h1>
+						</div>
+						<h2 id="modifying-background-image">Modifying background image</h2>
+						<ol>
+							<li>Open <code>js/init.js</code></li>
+							<li>In section <code>Background</code>, replace the path to image, <code>$.backstretch("PATH/TO/IMAGE");</code></li>
+						</ol>
+						<p><b>Example:</b> for image <i>myBackgroundImage.jpg</i> would look like: <code>$.backstretch("PATH/TO/myBackgroundImage.jpg");</code></p>
+						
+						
+						
+						<div class="page-header">
+							<h1 id="slideshow-template">Slideshow template</h1>
+						</div>
+						<h2 id="modifying-slideshow-images">Modifying slideshow images</h2>
+						<ol >
+							<li>Open <code>js/init.js</code></li>
+							<li>In section <code>Background</code>, replace the paths to images, 
+<pre class="prettyprint lang-java">
+$.backstretch([
+	"PATH/TO/IMAGE-1",
+	"PATH/TO/IMAGE-2",
+	"PATH/TO/IMAGE-3",
+	...
+], {duration: 3800, fade: 1500});
+</pre>
+							<li>The <code>duration</code> denotes how much time the image stays visible before <code>fade</code>ing out.</li>
+							</li>
+						</ol>
+						<p><b>Example:</b> for images <i>myBackgroundImage-1.jpg</i>, <i>myBackgroundImage-2.jpg</i>, <i>myBackgroundImage-3.jpg</i> 
+						would look like:</p>
+						<pre class="prettyprint lang-java">
+$.backstretch([
+	"PATH/TO/myBackgroundImage-1.jpg",
+	"PATH/TO/myBackgroundImage-2.jpg",
+	"PATH/TO/myBackgroundImage-3.jpg"
+], {duration: 3800, fade: 1500});
+								</pre>
+						
+						
+						
+						<div class="page-header">
+							<h1 id="video-template">Video template</h1>
+						</div>
+						<h2 id="adding-youtube-video">Adding youtube video</h2>
+						
+						<div class="alert alert-warning alert-dismissible" role="alert">
+						  <strong>Warning!</strong> The video will not play, if the theme is not running on the server.
+						</div>
+						
+						<ol >
+							<li>Open <code>js/init.js</code></li>
+							<li>In section <code>Background video</code>, replace the id with your desired video <code>videoId:'YOUTUBE-VIDEO-ID'</code></li>
+						</ol>
+						<p><b>Example:</b> for Youtube video with <a href="#">https://www.youtube.com/watch?v=ab0TSkLe-E0</a> url would look like: <code>videoId:'ab0TSkLe-E0'</code></p>
+
+						<h2 id="adding-local-video">Adding local video</h2>
+
+						<ol >
+							<li>Open <code>js/init.js</code></li>
+							<li>In section <code>Background video</code>, replace the paths with your desired video, <i>for each video type</i> and poster image.</li>
+						</ol>
+						<p><b>Example:</b> for video with <b>MYVIDEO</b> filename would look like: 						
+<pre class="prettyprint lang-java">
+$("body").vide({
+    mp4: 'PATH-TO/MYVIDEO.mp4',
+    webm: 'PATH-TO/MYVIDEO.webm',
+    ogv: 'PATH-TO/MYVIDEO.ogv',
+    poster: 'PATH-TO/MYVIDEO.jpg'
+}); 
+</pre></p>
+				</div>
+			</div>
+		</div>
+		<footer class="bs-footer" role="contentinfo">
+			<div class="container">
+				<p>2014, <a href="#">Choco Pixel</a> documentation for SeventyTwo template</p>
+			</div>
+		</footer>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/prettify/prettify.js"></script>
+		<script>
+			!function ($) {
+			
+			  $(function () {
+			
+			    // IE10 viewport hack for Surface/desktop Windows 8 bug
+			    //
+			    // See Getting Started docs for more information
+			    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			      var msViewportStyle = document.createElement('style')
+			      msViewportStyle.appendChild(
+			        document.createTextNode(
+			          '@-ms-viewport{width:auto!important}'
+			        )
+			      )
+			      document.querySelector('head').appendChild(msViewportStyle)
+			    }
+			
+			    var $window = $(window)
+			    var $body   = $(document.body)
+			
+			    $body.scrollspy({
+			      target: '.sidebar'
+			    });
+			
+			    $window.on('load', function () {
+			      $body.scrollspy('refresh')
+			    });
+			
+			    $('.docs-container [href=#]').click(function (e) {
+			      e.preventDefault()
+			    })
+			
+			    // back to top
+			    setTimeout(function () {
+			      var $sideBar = $('.sidebar')
+			
+			      $sideBar.affix({
+			        offset: {
+			          top: function () {
+			            var offsetTop      = $sideBar.offset().top
+			            var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
+			            var navOuterHeight = $('.docs-nav').height()
+			
+			            return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+			          },
+			          bottom: function () {
+			            return (this.bottom = $('.bs-footer').outerHeight(true))
+			          }
+			        }
+			      })
+			    }, 100);
+			
+			    setTimeout(function () {
+			      $('.top').affix()
+			    }, 100);
+				
+				window.prettyPrint && prettyPrint()
+			
+			  })
+			
+			}(jQuery)
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+	padding-top: 60px;
+}
+
+a {
+	color: #744d38;
+}
+
+a:hover,
+a:active {
+	color: #4b3224;
+}
+
+ol {
+	margin-top: 20px;
+}
+
+pre {
+	padding: 9.5px !important;
+	border: 1px solid #ccc !important;
+}
+
+.image-instructions img{
+	vertical-align: top;
+}
+
+.image-instructions li{
+	margin-top: 16px;
+}
+
+.sidebar.affix {
+	position: static;
+}
+
+.sidenav {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #f6f6f5;
+	border-radius: 5px;
+}
+
+.navbar-inverse {
+	background-color: #252423;
+	border-color: #0c0b0a;
+}
+
+.navbar-brand {
+	padding: 12px 15px;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+	.sidebar .nav > .active > ul {
+		display: block;
+	}
+  /* Widen the fixed sidebar */
+	.sidebar.affix,
+  .sidebar.affix-bottom {
+		width: 213px;
+	}
+
+	.sidebar.affix {
+		position: fixed;
+    /* Undo the static from mobile first approach */
+		top: 80px;
+	}
+
+	.sidebar.affix-bottom {
+		position: absolute;
+    /* Undo the static from mobile first approach */;
+	}
+
+	.sidebar.affix-bottom .sidenav,
+  .sidebar.affix .sidenav {
+		margin-top: 0;
+		margin-bottom: 0;
+	};
+}
+
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+	.sidebar.affix-bottom,
+  .sidebar.affix {
+		width: 263px;
+	};
+}
+
+.sidebar.affix-bottom .sidenav, .sidebar.affix .sidenav {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.sidebar .nav .nav > li > a {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 30px;
+	font-size: 90%;
+}
+
+.sidebar .nav > .active > a, 
+			.sidebar .nav > .active:hover > a, 
+			.sidebar .nav > .active:focus > a {
+	font-weight: bold;
+	background-color: transparent;
+	border-right: 1px solid #1e140f;
+}
+
+.sidebar.affix-bottom .sidenav, .sidebar.affix .sidenav {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+			}
+
+.bs-footer p {
+	margin-bottom: 0;
+}
+
+.bs-footer {
+	padding-top: 40px;
+	padding-bottom: 30px;
+	margin-top: 100px;
+	color: #777;
+	text-align: center;
+	border-top: 1px solid #e5e5e5;
+}
+
+@media (min-width: 768px) {
+	.bs-footer {
+		text-align: left;
+	}

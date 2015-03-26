@@ -14,7 +14,7 @@ $(function () {
 	 */
 
 	$.backstretch([
-		"img/background/1.jpg"
+		"img/background/jennyundniels.jpg"
 	]);
 	
 	/* ---------------------------------------------------------
@@ -60,15 +60,15 @@ $(function () {
 	 */
 
 	var description = {
-		weeks: "weeks",
-		days: "days",
-		hours: "hours",
-		minutes: "minutes",
-		seconds: "seconds"
+		weeks: "Wochen",
+		days: "Tage",
+		hours: "Stunden",
+		minutes: "Minuten",
+		seconds: "Sekunden"
 	};
 	
 	// year/month/day
-	$('#countdown').countdown('2015/6/12', function (event) {
+	$('#countdown').countdown('2015/4/1', function (event) {
 		$(this).html(event.strftime(
 			'<div class="countdown-section"><b>%w</b> <span>' + description.weeks + '</span> </div>' +
 			'<div class="countdown-section"><b>%d</b> <span>' + description.days + '</span> </div>' +

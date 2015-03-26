@@ -1,5 +1,5 @@
 <?php
-/**s
+/**
  * @author     Niels Nübel <niels@niels-nuebel.de>
  * @link       http://www.nn-medienagentur.de
  * @copyright  (c) 2014 - 2015 Niels Nübel- NN-Medienagentur

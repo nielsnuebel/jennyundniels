@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic|Raleway:700,400,300|Pacifico|PT+Serif);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic|Raleway:700,400,300|Libre+Baskerville|PT+Serif);
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -23144,7 +23144,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 .logo-font {
-  font-family: 'Pacifico', cursive, sans-serif;
+  font-family: 'Libre Baskerville', sans-serif;
 }
 /*Typography
 ---------------------------------- */

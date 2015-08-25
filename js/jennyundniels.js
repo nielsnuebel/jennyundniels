@@ -23626,7 +23626,8 @@ $(document).ready(function(){
 		// Set the time at which the countdown expires.
 		// var untilDate new Date(Year, Month - 1, Day)
 		//-----------------------------------------------
-		var untilDate = new Date(2015, 8 - 1, 29);
+		var untilDate = new Date(2015, 8 - 1, 29,13,0,0);
+		console.log(untilDate);
 
 		$(".countdown").countdown({
 			until: untilDate,

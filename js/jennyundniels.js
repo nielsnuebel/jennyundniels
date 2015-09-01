@@ -23630,7 +23630,7 @@ $(document).ready(function(){
 		console.log(untilDate);
 
 		$(".countdown").countdown({
-			until: untilDate,
+			since: untilDate,
 			format: 'dHMS',
 			padZeroes: true
 		});
